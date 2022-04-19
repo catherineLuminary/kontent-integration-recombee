@@ -15,6 +15,7 @@ export default class KontentClient {
   }
 
   async getAllContentItemsOfType(): Promise<ContentItem[]> {
+    console.log(this.config);
     if (!this.config.language) return [];
     const feed = await this.client.itemsFeedAll().type(this.config.contentType).queryConfig({ waitForLoadingNewContent: true })
       .languageParameter(this.config.language).equalsFilter("system.language", this.config.language).toPromise();
@@ -23,6 +24,7 @@ export default class KontentClient {
   }
 
   async getContentForCodename(codename: string): Promise<ContentItem | null> {
+        console.log(this.config);
     if (!this.config.language) return null;
 
     const item = await this.client.item(codename).queryConfig({ waitForLoadingNewContent: true })
