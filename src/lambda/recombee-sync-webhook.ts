@@ -108,4 +108,10 @@ export async function handler(event: APIGatewayEvent, context: Context) {
         };
     }
   }
+  
+  // if message type is not content_item_variant, then return success
+  return {
+    statusCode: 200,
+    body: `${JSON.stringify("success")}`
+  };
 }
