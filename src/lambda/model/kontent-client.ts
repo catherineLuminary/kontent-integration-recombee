@@ -26,8 +26,8 @@ export default class KontentClient {
 
     const item = await this.client.item(codename).queryConfig({ waitForLoadingNewContent: true })
       .languageParameter(this.config.language).toPromise();
-
-    return item;
+console.log('item', item);
+    return item.item;
   }
 }
 
