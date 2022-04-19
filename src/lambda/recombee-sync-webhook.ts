@@ -65,7 +65,6 @@ export async function handler(event: APIGatewayEvent, context: Context) {
               const kontentClient = new KontentClient(kontentConfig);
 
               const contentItem = await kontentClient.getContentForCodename(item.codename);
-              console.log('contentItem', contentItem);
               if (contentItem) {
                 const recombeeClient = new RecombeeClient(recombeeConfig);
                 await recombeeClient.importContent([contentItem]);
