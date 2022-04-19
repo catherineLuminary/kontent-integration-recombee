@@ -15,22 +15,19 @@ export default class KontentClient {
   }
 
   async getAllContentItemsOfType(): Promise<ContentItem[]> {
-    console.log(this.config);
     if (!this.config.language) return [];
     const feed = await this.client.itemsFeedAll().type(this.config.contentType).queryConfig({ waitForLoadingNewContent: true })
       .languageParameter(this.config.language).equalsFilter("system.language", this.config.language).toPromise();
-    console.log(feed);
     return feed.items;
   }
 
   async getContentForCodename(codename: string): Promise<ContentItem | null> {
-        console.log(this.config);
     if (!this.config.language) return null;
 
     const item = await this.client.item(codename).queryConfig({ waitForLoadingNewContent: true })
       .languageParameter(this.config.language).toPromise();
-    console.log(item);
-    return item.item;
+
+    return item;
   }
 }
 
