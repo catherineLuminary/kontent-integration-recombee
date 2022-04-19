@@ -90,7 +90,7 @@ export default class RecombeeClient {
     const data: any[] = [];
     for (const item of items) {
       const transformed = this.getContentValuesForRecommendations(item);
-      console.log('transformed', transformed);
+      console.log('ID name', `${item.system.id}_${item.system.language}`);
       data.push(new Recombee.requests.SetItemValues(`${item.system.id}_${item.system.language}`, transformed, {cascadeCreate: true}));
     }
 
