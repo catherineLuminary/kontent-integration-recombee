@@ -61,7 +61,7 @@ export async function handler(event: APIGatewayEvent, context: Context) {
               if (!languagesToWatch.includes(item.language)) continue;
             
               // type that shall be processed
-              const kontentConfig: KontentConfiguration = { projectId: webhook.message.project_id, contentType: item.type };
+              const kontentConfig: KontentConfiguration = { projectId: webhook.message.project_id, contentType: item.type, language: item.language };
               const kontentClient = new KontentClient(kontentConfig);
 
               const contentItem = await kontentClient.getContentForCodename(item.codename);
