@@ -77,6 +77,7 @@ export async function handler(event: APIGatewayEvent, context: Context) {
               body: JSON.stringify({ message: 'Error : ' + err }),
             };
           }
+          break;
         }
       // unpublish webhook
       case "unpublish":
@@ -99,6 +100,7 @@ export async function handler(event: APIGatewayEvent, context: Context) {
               body: JSON.stringify({ message: 'Error : ' + err }),
             };
           }
+          break;
         }
 
       default:
